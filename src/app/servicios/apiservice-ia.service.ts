@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import Groq from 'groq-sdk';
-import {environment} from "@envs/environment"
+import {environment} from "../../environments/environment"
 @Injectable({
   providedIn: 'root',
 })

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { MateriaAsignadaDocente } from '../interfaces/materia-asignada-docente';
 import { Asistencia } from '../interfaces/asistencia';
 import { map } from 'rxjs/operators';
-import {environment} from "@envs/environment";
+import {environment} from "../../environments/environment";
 @Injectable({
   providedIn: 'root',
 })

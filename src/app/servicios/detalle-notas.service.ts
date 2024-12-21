@@ -6,7 +6,7 @@ import { MateriaAsignadaDocente } from '../interfaces/materia-asignada-docente';
 import { Materia } from '../interfaces/materia';
 import { Estudiante } from '../interfaces/estudiante';
 import { Nota } from '../interfaces/nota';
-import {environment} from "@envs/environment"
+import {environment} from "../../environments/environment"
 
 @Injectable({
   providedIn: 'root',

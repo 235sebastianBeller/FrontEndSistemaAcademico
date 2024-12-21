@@ -8,7 +8,7 @@ import { MateriaAsignadaDocente } from '../interfaces/materia-asignada-docente';
 import { map } from 'rxjs';
 import { Inscripcion } from '../interfaces/Inscripcion';
 import { Estudiante } from '../interfaces/estudiante';
-import {environment} from "@envs/environment"
+import {environment} from "../../environments/environment"
 @Injectable({
   providedIn: 'root'
 })

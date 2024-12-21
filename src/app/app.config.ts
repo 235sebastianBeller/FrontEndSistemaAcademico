@@ -12,7 +12,7 @@ import {
 import { authInterceptor } from './interceptors/auth.interceptor'; 
 import { errorHandlerInterceptor } from './interceptors/error-handler.interceptor';
 import { offlineInterceptor } from './interceptors/offline.interceptor';
-import {environment} from '@envs/environment'
+import {environment} from '../environments/environment'
 
 
 export const appConfig: ApplicationConfig = {

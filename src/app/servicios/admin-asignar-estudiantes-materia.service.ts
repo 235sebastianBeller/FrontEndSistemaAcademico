@@ -5,7 +5,7 @@ import { catchError,map } from 'rxjs/operators';
 import { Estudiante } from '../interfaces/estudiante';
 import { MateriaAsignadaDocente } from '../interfaces/materia-asignada-docente';  // Importa la interfaz
 
-import{environment} from '@envs/environment'
+import{environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'

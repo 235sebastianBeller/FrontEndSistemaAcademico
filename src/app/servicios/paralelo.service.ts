@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Paralelo} from '../interfaces/paralelo'
-import {environment} from "@envs/environment"
+import {environment} from "../../environments/environment"
 
 @Injectable({
   providedIn: 'root'

@@ -21,10 +21,7 @@
     "lib": [
       "ES2022",
       "dom"
-    ],
-    "paths":{
-      "@envs/*":["./src/environments/*"]
-    }
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
