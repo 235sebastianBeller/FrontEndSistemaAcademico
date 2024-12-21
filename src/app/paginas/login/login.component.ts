@@ -17,8 +17,8 @@ import { SelectionColorService } from '../../servicios/selection-color.service';
 })
 export class LoginComponent {
   selectedColor: string = '';
-  email: string = '';
-  password: string = '';
+  email: string = 'juan.perez@example.com';
+  password: string = '!Mx789%Wt';
   errorMessage: string | null = null;
   passwordType: string = 'password';
   showPassword: boolean = false;
