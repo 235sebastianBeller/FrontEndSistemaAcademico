@@ -1,0 +1,56 @@
+<div [ngClass]="getColorClass()">
+  <div class="content">
+
+      <div>PERFIL DEL ESTUDIANTE: <br>
+        {{estudianteSeleccionado?.email}}</div>
+
+      <form [formGroup]="estudianteForm" (ngSubmit)="onGuardar()">
+
+        <div class="foto-perfil">
+          <img [src]="imagenURL || 'assets/img/silueta.png'" width="200" alt="Foto de perfil seleccionada">
+        </div>
+
+        <div class="elegir-avatar">
+          <ul>
+            <li><img loading="lazy" src="assets/img/avatar1.png" (click)="selectAvatar('assets/img/avatar1.png')"></li>
+            <li><img loading="lazy" src="assets/img/avatar2.png" (click)="selectAvatar('assets/img/avatar2.png')"></li>
+            <li><img loading="lazy" src="assets/img/avatar3.png" (click)="selectAvatar('assets/img/avatar3.png')"></li>
+            <li><img loading="lazy" src="assets/img/avatar4.png" (click)="selectAvatar('assets/img/avatar4.png')"></li>
+            <li><img loading="lazy" src="assets/img/avatar5.png" (click)="selectAvatar('assets/img/avatar5.png')"></li>
+            <li><img loading="lazy" src="assets/img/avatar6.png" (click)="selectAvatar('assets/img/avatar6.png')"></li>
+            <li><img loading="lazy" src="assets/img/avatar7.png" (click)="selectAvatar('assets/img/avatar7.png')"></li>
+            <li><img loading="lazy" src="assets/img/avatar8.png" (click)="selectAvatar('assets/img/avatar8.png')"></li>
+          </ul>
+        </div>
+
+
+
+
+        <label for="fname">Nombre</label>
+        <input type="text" id="fname" formControlName="nombre">
+
+        <label for="lname">Apellido</label>
+        <input type="text" id="lname" formControlName="apellido">
+
+        <!-- <label for="currentPassword">Contraseña Anterior</label> -->
+        <!-- <input type="password" id="currentPassword" formControlName="currentPassword"> -->
+        <!-- <div *ngIf="estudianteForm.get('currentPassword')?.invalid && estudianteForm.get('currentPassword')?.touched" class="error">
+          La contraseña debe tener al menos 8 caracteres.
+        </div> -->
+
+        <label for="newPassword">Contraseña Nueva</label>
+        <input type="password" id="newPassword" formControlName="newPassword">
+
+        <label for="repeatNewPassword">Confirmar Contraseña Nueva</label>
+        <input type="password" id="repeatNewPassword" formControlName="repeatNewPassword">
+        <div *ngIf="estudianteForm.hasError('mismatch') && estudianteForm.get('repeatNewPassword')?.touched" class="error">
+          Las contraseñas no coinciden.
+        </div>
+        <div class="dialog-buttons">
+        <input type="submit" value="GUARDAR">
+        </div>
+
+      </form>
+
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div [ngClass]="getColorClass()">
+  <header>
+    <button (click)="toggleSidebar()" class="menu-button">&#9776;</button>
+    <div class="titulo">
+      <h1><b>Colegio San Rafael</b></h1>
+    </div>
+    <div class="acciones">
+      <div class="perfil-notificaciones">
+        <img loading="lazy" class="notificaciones" src="assets/img/boton-de-notificaciones.png" alt="Notificaciones" />
+        <a [routerLink]="userRole === 'estudiante' ? 'perfil-estudiante/' + idEstudiante : '/home/'">
+          <img loading="lazy" *ngIf="fotoPerfil || 'assets/img/silueta.jpg'" [src]="fotoPerfil" alt="Foto de Perfil" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="sidebar" [class.open]="isSidebarOpen">
+      <div class="escudo">
+        <a [routerLink]="['/home']">
+          <img loading="lazy" src="assets/img/logo.png" alt="Escudo" />
+        </a>
+      </div>
+      <ul>
+        <li>
+          <a [routerLink]="['/home']">
+            <mat-icon>home</mat-icon>
+            <div><b>Inicio</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'profesor'">
+
+          <a routerLink="ver-materias-docente">
+            <mat-icon>book</mat-icon>
+            <div><b>Mis Materias</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'estudiante'">
+
+          <a routerLink="historial-asistencia">
+            <mat-icon>check_circle</mat-icon>
+            <div><b>Mis Asistencias</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'estudiante'">
+
+          <a routerLink="mostrar-materia">
+            <mat-icon>book</mat-icon>
+            <div><b>Mis Materias</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'estudiante'">
+
+          <a routerLink="notas">
+            <mat-icon>task</mat-icon>
+            <div><b>Mis Notas</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'profesor'">
+          <a routerLink="notas-profesor">
+            <mat-icon>task</mat-icon>
+            <div><b>Mis Notas</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'admin'">
+          <a routerLink="admin-ver-estudiantes">
+            <mat-icon>school</mat-icon>
+            <div><b>Estudiantes</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'admin'">
+          <a routerLink="ver-lista-profesores">
+            <mat-icon>supervisor_account</mat-icon>
+            <div><b>Profesores</b></div>
+          </a>
+        </li>
+        <li *ngIf="userRole === 'admin'">
+
+          <a routerLink="materias-admin">
+            <mat-icon>book</mat-icon>
+            <div><b>Materias</b></div>
+          </a>
+        </li>
+        <li><a (click)="logout()" routerLink="logout">
+            <mat-icon>logout</mat-icon>
+            <div><b>Log out</b></div>
+          </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-content" [ngClass]="{'sidebar-open': isSidebarOpen}">
+    <router-outlet></router-outlet>
+  </main>
+</div>

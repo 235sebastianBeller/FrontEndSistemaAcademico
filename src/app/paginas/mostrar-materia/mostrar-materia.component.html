@@ -1,0 +1,31 @@
+<div [ngClass]="getColorClass()">
+
+  <h2><b>Mis materias:</b></h2>
+  <select (change)="onYearChange($event)">
+    <option *ngFor="let year of anios" [value]="year">{{ year }}</option>
+  </select>
+
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar materia..." class="search-input"
+    (ngModelChange)="filtrarMaterias()"/>
+  </div>
+
+  <div class="materias-contenedor">
+    <div *ngFor="let materia of materiasFiltradas" class="materia-card">
+
+      <img mat-card-image
+        src="https://2.bp.blogspot.com/-DOXEGnjTVHs/V3MUqvgn_dI/AAAAAAAAADE/LEZCAP5mB-UE8S3FOs91mCeVu31KewVAQCLcB/s1600/lectura1-1030x953.jpg"
+        alt="Photo of a Shiba Inu" loading="lazy">
+      <button [routerLink]="['/home/detalle-materia', materia.titulo]"
+      class="materia-nombre"><b>{{materia.materia?.nombre}}</b></button>
+      <div class="profesor-nombre"><b>{{ materia.profesor?.nombre}} {{ materia.profesor?.apellido }}</b></div>
+
+      <div class="Paralelo"><b>Paralelo: {{materia.materia?.paralelo?.paralelo}}</b></div>
+
+
+      <div class="enlace-detalles">
+        <button mat-button [routerLink]="['/home/detalle-materia', materia.id_dicta]"><b>Más detalles</b></button>
+      </div>
+    </div>
+
+  </div>

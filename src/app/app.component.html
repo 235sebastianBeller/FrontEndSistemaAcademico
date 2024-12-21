@@ -1,0 +1,7 @@
+<div class="paginas-color">
+    <b>Color:</b>
+    <div class="color-option" (click)="onColorChange('azul')" [class.selected]="selectedColor === 'azul'" style="background-color: rgb(19, 16, 221)"></div>
+    <div class="color-option" (click)="onColorChange('amarillo')" [class.selected]="selectedColor === 'amarillo'" style="background-color: rgb(255, 204, 0)"></div>
+    <div class="color-option" (click)="onColorChange('verde')" [class.selected]="selectedColor === 'verde'" style="background-color: rgb(14, 169, 14)"></div>
+</div>
+<router-outlet [ngClass]="selectedColor"></router-outlet>

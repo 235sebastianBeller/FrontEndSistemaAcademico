@@ -1,0 +1,50 @@
+<div [ngClass]="getColorClass()">
+  <h2><b>Notas:</b></h2>
+  <select (change)="onYearChange($event)">
+    <option *ngFor="let year of anios" [value]="year">{{ year }}</option>
+  </select>
+
+  <div>
+    <button mat-raised-button color="primary" (click)="exportarPDF()" class="button-export">
+      <mat-icon>picture_as_pdf</mat-icon> Exportar a PDF
+    </button>
+    <button mat-raised-button color="success" (click)="exportarExcel()" class="button-export">
+      <mat-icon>insert_drive_file</mat-icon> Exportar a EXCEL
+    </button>
+  </div>
+
+  <div *ngIf="isLoading" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!isLoading">
+    <h2><b>Notas del Estudiante:</b></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Materia</th>
+          <th>Trimestre 1</th>
+          <th>Trimestre 2</th>
+          <th>Trimestre 3</th>
+          <th>Promedio</th>
+          <th>Estado</th>
+          <th>Enlace</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let id_dicta of notasPorMateria | keyvalue">
+          <td>{{ nombresMaterias[+id_dicta.key] }}</td>
+          <td>{{ calcularPromedioGlobalPorTrimestre(+id_dicta.key, 1) | number: '2.2-2' }}</td>
+          <td>{{ calcularPromedioGlobalPorTrimestre(+id_dicta.key, 2) | number: '2.2-2' }}</td>
+          <td>{{ calcularPromedioGlobalPorTrimestre(+id_dicta.key, 3) | number: '2.2-2' }}</td>
+          <td>{{ calcularPromedioGeneral(+id_dicta.key) | number: '1.2-2' }}</td>
+          <td>{{ determinarEstado(calcularPromedioGeneral(+id_dicta.key)) }}</td>
+          <!-- Cambiar el promedio para el estado -->
+          <td><button
+              [routerLink]="['/home/detalle-notas-estudiantes',id_dicta.key,obtenerIdEstudiante(),selectedYear]">Mas
+              detalle</button></td> <!-- Usar método para manejar el clic -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

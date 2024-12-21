@@ -1,0 +1,118 @@
+.carousel
+  position: relative
+  width: 100%
+  max-width: 700px
+  height: 650px
+  margin: auto
+  overflow: hidden
+  border-radius: 10px
+
+  .carousel-inner
+    display: flex
+    transition: transform 0.5s ease-in-out
+
+  .carousel-item
+    min-width: 100%
+
+    img
+      width: 100%
+      height: auto
+      border-radius: 10px
+
+  .carousel-control
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    background-color: rgba(0, 0, 0, 0.5)
+    color: #fff
+    border: none
+    font-size: 2rem
+    padding: 10px
+    cursor: pointer
+
+    &.prev
+      left: 10px
+
+    &.next
+      right: 10px
+
+  .carousel-indicators
+    position: absolute
+    bottom: 10px
+    left: 50%
+    transform: translateX(-50%)
+    display: flex
+    gap: 10px
+
+    .indicator
+      width: 10px
+      height: 10px
+      background-color: #fff
+      border-radius: 50%
+      cursor: pointer
+      opacity: 0.5
+
+      &.active
+        opacity: 1
+        background-color: rgb(255,255,255)
+
+@media (max-width: 768px)
+  .carousel
+    position: relative
+    width: 100%
+    max-width: 700px
+    height: 650px
+    margin: auto
+    margin-left: 15px
+    overflow: hidden
+    border-radius: 10px
+
+    .carousel-inner
+      display: flex
+      transition: transform 0.5s ease-in-out
+
+    .carousel-item
+      margin-top: 60px
+      min-width: 100%
+
+      img
+        width: 350px
+        height: 800px
+        border-radius: 10px
+
+    .carousel-control
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      background-color: rgba(0, 0, 0, 0.5)
+      color: #fff
+      border: none
+      font-size: 1.5rem
+      padding: 10px
+      cursor: pointer
+
+      &.prev
+        left: 10px
+
+      &.next
+        right: 30px
+
+    .carousel-indicators
+      position: absolute
+      bottom: 10px
+      left: 50%
+      transform: translateX(-50%)
+      display: flex
+      gap: 10px
+
+      .indicator
+        width: 10px
+        height: 10px
+        background-color: #fff
+        border-radius: 50%
+        cursor: pointer
+        opacity: 0.5
+
+        &.active
+          opacity: 1
+          background-color: rgb(255,255,255)

@@ -1,0 +1,80 @@
+<div [ngClass]="getColorClass()">
+
+  <div class="search-section">
+    <label>Buscar por Nombre: </label>
+    <input [(ngModel)]="filtroNombre" name="filtroNombre" placeholder="Nombre">
+    <label>Buscar por Apellido:</label>
+    <input [(ngModel)]="filtroapellido" name="filtroapellido" placeholder="Apellido">
+  </div>
+
+<div class="container">
+  <div class="agregar-boton-estudiante">
+  <button class="add-button" (click)="abrirFormulario()">
+    <span>+</span> <b>Agregar Estudiante</b>
+  </button>
+  </div>
+        <!-- Modal para agregar/editar estudiante -->
+        <div class="modal" *ngIf="mostrarFormulario">
+            <div class="modal-content">
+              <span class="close" (click)="cerrarFormulario()">&times;</span>
+              <h2><b>{{ editando ? 'Editar Estudiante' : 'Agregar Estudiante' }}</b></h2>
+
+              <form (ngSubmit)="guardarEstudiante()">
+                  <label>Nombre:</label>
+                  <input [(ngModel)]="estudiante.nombre" name="nombre" required (ngModelChange)="generarEmailYPassword()" />
+
+                  <label>Apellido:</label>
+                  <input [(ngModel)]="estudiante.apellido" name="apellido" required (ngModelChange)="generarEmailYPassword()" />
+
+                <label>Email:</label>
+                <input [(ngModel)]="estudiante.email" name="email" required />
+
+                <label>Password:</label>
+                <input [(ngModel)]="estudiante.password" name="password"  required />
+
+
+                <div>
+                  <label >Paralelo: </label>
+                  <select  (click)="actualizarParalelo($event)">
+                    <option *ngFor="let paralelo of paralelos" [ngValue]="paralelo">
+                      {{ paralelo.paralelo }}
+                    </option>
+                  </select>
+                </div>
+
+
+
+                <button type="submit">{{ editando ? 'Guardar Cambios' : 'Agregar' }}</button>
+              </form>
+            </div>
+          </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Paralelo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudiantesFiltrados.reverse()">
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.apellido }}</td>
+        <td>{{ estudiante.email }}</td>
+        <td>{{ estudiante.paralelo?.paralelo }}</td>
+        <td>
+          <button mat-button (click)="editarEstudiante(estudiante.id_estudiante)">
+            <img
+              src="https://png.pngtree.com/png-clipart/20230921/original/pngtree-comicstyle-notepad-with-editing-pencil-icon-edit-isolated-note-vector-png-image_12814232.png"
+              alt="Editar" width="30" height="30" loading="lazy" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>

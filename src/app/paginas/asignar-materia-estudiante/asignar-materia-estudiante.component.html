@@ -1,0 +1,31 @@
+<div [ngClass]="getColorClass()" class="contenidoGestionTabla">
+
+  <select (change)="onYearChange($event)">
+    <option *ngFor="let year of [2024,2023]" [value]="year">{{ year }}</option>
+  </select>
+    <div class="profesores-container">
+      <h2>Lista de profesores asignados a la materia</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Nombres</th>
+              <th>Apellido</th>
+              <th>Configuraciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let profesor of profesoresAsignadosAMateria">
+              <td>{{ profesor.nombre }}</td>
+              <td>{{ profesor.apellido }}</td>
+              <td>
+                <button mat-raised-button
+                (click)="asignarEstudiante(profesor.id_profesor)"
+                >Estudiantes</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+    </div>

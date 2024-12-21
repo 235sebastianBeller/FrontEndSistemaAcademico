@@ -1,0 +1,44 @@
+<div [ngClass]="getColorClass()">
+  <div class="titulo">
+    <div class="area-materias"><b>Área: Ciencias</b></div>
+    <div *ngIf="estudianteSeleccionado" class="nombre-estudiante">
+         <p><b>Nombre estudiante: {{ estudianteSeleccionado.nombre }} {{ estudianteSeleccionado.apellido }}</b></p>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!isLoading">
+  <div class="notas-container">
+    <h2><b>Notas por Trimestre</b></h2>
+    <div *ngFor="let trimestre of notasPorTrimestre | keyvalue" class="trimestre-section">
+      <h3><b>Trimestre {{ trimestre.key }}</b></h3>
+  
+      <div class="notas">
+        <div class="nota-item">
+          <span class="tipo-label"><b>Ser:</b></span>
+          <span class="nota-value"><b>{{ trimestre.value.ser[0].nota }}</b></span>
+        </div>
+        <div class="nota-item">
+          <span class="tipo-label"><b>Saber:</b></span>
+          <span class="nota-value"><b>{{ trimestre.value.saber[0].nota }}</b></span>
+        </div>
+        <div class="nota-item">
+          <span class="tipo-label"><b>Hacer:</b></span>
+          <span class="nota-value"><b>{{ trimestre.value.hacer[0].nota }}</b></span>
+        </div>
+        <div class="nota-item">
+          <span class="tipo-label"><b>Decidir:</b></span>
+          <span class="nota-value"><b>{{ trimestre.value.decidir[0].nota }}</b></span>
+        </div>
+        <div class="nota-item total">
+          <span class="tipo-label"><strong><b>Total:</b></strong></span>
+          <span class="nota-value"><strong><b>{{ (convertToNumber(trimestre.value.ser[0].nota) + convertToNumber(trimestre.value.saber[0].nota) + convertToNumber(trimestre.value.hacer[0].nota) + convertToNumber(trimestre.value.decidir[0].nota)) / 4 }}</b></strong></span>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

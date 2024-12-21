@@ -1,0 +1,35 @@
+<div [ngClass]="getColorClass()">
+  <div class="titulo">
+    <h1><b>{{ materiaAsignada?.materia?.nombre }}</b></h1>
+    <div class="area-materias"><b>Área: Ciencias</b></div>
+    <div class="profesor-nombre"><b>Profesor: {{ materiaAsignada?.profesor?.nombre}} {{ materiaAsignada?.profesor?.apellido }}</b></div>
+    <div class="paralelo"><b>Paralelo: {{ materiaAsignada?.materia?.paralelo?.paralelo }}</b></div>
+  </div>
+
+  <div class="asistencia-lista-btn">
+    <button class="asistencias-btn" [routerLink]="['/home/registro-asistencias-estudiantes', id_dicta]">
+      <b>Asistencias</b>
+    </button>
+    <button class="lista-btn" [routerLink]="['/home/lista-estudiantes-profesor', id_dicta]">
+      <b>Lista de estudiantes</b>
+    </button>
+  </div>
+
+  <div class="titulo-contenido">
+    <h2><b>Contenidos</b></h2>
+    <button class="add-content-btn" (click)="addNewModule()"><b>Agregar Nuevo Contenido</b></button>
+  </div>
+
+  <div class="contenido-materia-detalle">
+    <div *ngFor="let card of unidades" class="card-wrapper">
+      <div (click)="dirigirAContenido(card.id_unidad)" class="content-img">
+        <img [src]="card.imagen_url" alt="Module Image" loading="lazy" />
+        <div><b>{{ card.nombre }}</b></div>
+      </div>
+      <div class="button-group">
+        <button (click)="editCard(card.id_unidad)"><b>Editar</b></button>
+        <button (click)="deleteCard(card.id_unidad)"><b>Eliminar</b></button>
+      </div>
+    </div>
+  </div>
+</div>

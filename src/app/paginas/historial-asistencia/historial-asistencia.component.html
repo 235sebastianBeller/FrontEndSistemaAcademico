@@ -1,0 +1,34 @@
+<div [ngClass]="getColorClass()">
+  <h2><b>Mis Asistencias:</b></h2>
+  <select (change)="onYearChange($event)">
+    <option *ngFor="let year of anios" [value]="year">{{ year }}</option>
+  </select>
+
+  <div class="buscador">
+    <input type="text" class="text-input" placeholder="Escribe tu búsqueda..." [(ngModel)]="busqueda"
+      (ngModelChange)="filtrarMaterias()" />
+  </div>
+
+  <div class="materias-contenedor">
+    <div *ngFor="let materia of materiasFiltradas" class="materia-card">
+      <img
+        src="https://2.bp.blogspot.com/-DOXEGnjTVHs/V3MUqvgn_dI/AAAAAAAAADE/LEZCAP5mB-UE8S3FOs91mCeVu31KewVAQCLcB/s1600/lectura1-1030x953.jpg"
+        alt="{{materia.titulo}}" loading="lazy" />
+      <div>
+        <h2><b>{{materia.materia?.nombre}}</b></h2>
+        <p><strong>Profesor:</strong> {{materia.profesor?.nombre}} {{materia.profesor?.apellido}}</p>
+        <p><strong>Paralelo:</strong> {{materia.materia?.paralelo?.paralelo}}</p>
+        <div class="historial">
+          <p><strong>Faltas:</strong> {{calcularTotalClases(materia).faltas}}</p>
+          <p><strong>Asistencias:</strong> {{calcularTotalClases(materia).asistencias}}</p>
+          <p><strong>Licencias:</strong> {{calcularTotalClases(materia).licencias}}</p>
+          <p><strong>Total de clases:</strong> {{calcularTotalClases(materia).asistencias +
+            calcularTotalClases(materia).faltas + calcularTotalClases(materia).licencias}}</p>
+        </div>
+        <p><strong><a
+              [routerLink]="['/home/ver-asistencia-materia', materia.id_dicta,materia.profesor?.nombre,  materia?.materia?.nombre]"
+              class="blue-link">Detalle</a></strong></p>
+      </div>
+    </div>
+  </div>
+</div>

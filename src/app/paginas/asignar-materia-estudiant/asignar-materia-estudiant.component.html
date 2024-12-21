@@ -1,0 +1,27 @@
+<div class="profesores-container">
+  <h2>LISTA DE ESTUDIANTES</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo Electrónico</th>
+        <th>Configuraciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estudiante of estudianteFiltrados">
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.apellido }}</td>
+        <td>{{ estudiante.email }}</td>
+        <td>
+          <div class="button-container">
+            <button mat-button (click)="abrirDialogo(estudiante.id_estudiante)">
+              <img loading="lazy" src="https://png.pngtree.com/png-clipart/20230921/original/pngtree-comicstyle-notepad-with-editing-pencil-icon-edit-isolated-note-vector-png-image_12814232.png" alt="Ver Materias" width="60" height="60">
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,16 @@
+<mat-list>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Materia: Matematicas</div>
+    <div mat-subheader>Contenidos:</div>
+    <mat-divider></mat-divider>
+    @for (contenido of this.materialesServicio.getMateriales(); track contenido.id_material) {
+      <mat-list-item>
+        <mat-icon matListItemIcon>note</mat-icon>
+        <div matListItemTitle>
+            <a [routerLink]="['/home/ver-material', contenido.url]">{{contenido.nombre}}</a>
+        </div>
+        <div matListItemLine>{{contenido.tipo}}</div>
+      </mat-list-item>
+    }
+</mat-list>
+  

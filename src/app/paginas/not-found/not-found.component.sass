@@ -1,0 +1,89 @@
+$primary-color: rgb(245, 245, 245)
+$font-color: #000000
+$content-bg-color: #ffffff
+
+.ocultar
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 50px
+  background-color: rgb(245, 245, 245)
+  z-index: 1000
+  display: flex
+  align-items: center
+  justify-content: center
+
+.not-found-container
+  display: flex
+  align-items: center
+  justify-content: center
+  min-height: 100vh
+  background: $primary-color
+  padding: 0
+  box-sizing: border-box
+  text-align: center
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+
+.content
+  max-width: 500px
+  color: $font-color
+  background-color: $content-bg-color
+  padding: 2rem
+  border-radius: 10px
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2)
+
+.status-code
+  font-size: 6rem
+  margin: 0
+  font-weight: 700
+  letter-spacing: -2px
+  color: $font-color
+
+.message
+  font-size: 1.8rem
+  margin: 0.5rem 0 1rem
+  font-weight: 600
+  letter-spacing: -0.5px
+  color: $font-color
+
+.description
+  font-size: 1rem
+  line-height: 1.6
+  margin-bottom: 2rem
+  color: darken($font-color, 20%) // Un tono más oscuro para mejorar contraste
+
+.home-link
+  display: inline-block
+  text-decoration: none
+  background-color: $font-color
+  color: $content-bg-color
+  padding: 0.8rem 1.2rem
+  border-radius: 5px
+  font-weight: 600
+  transition: background-color 0.3s ease, color 0.3s ease
+
+  &:hover
+    background-color: darken($font-color, 20%)
+    color: $primary-color
+
+@media (max-width: 760px)
+  .content
+    max-width: 90%
+    padding: 1rem
+    border-radius: 5px
+
+  .status-code
+    font-size: 1.6rem
+
+  .message
+    font-size: 1rem
+
+  .description
+    font-size: 0.625rem
+
+  .home-link
+    font-size: 0.625rem
+    padding: 0.5rem 0.8rem
+
+

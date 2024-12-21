@@ -1,0 +1,28 @@
+<div [ngClass]="getColorClass()">
+  <div class="form-modal">
+    <h2 mat-dialog-title>Agregar Materia</h2>
+    <mat-dialog-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre de la materia</mat-label>
+        <input matInput [(ngModel)]="newMateriaName" placeholder="Ingrese el nombre de la materia" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Paralelos</mat-label>
+        <select matNativeControl [(ngModel)]="paralelo">
+          <option *ngFor="let paralelo of paralelos" [ngValue]="paralelo">
+            {{ paralelo.paralelo }}
+          </option>
+        </select>
+      </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <div class="dialog-buttons">
+      <button mat-button (click)="onAdd()">Añadir</button>
+      <button mat-button (click)="onCancel()">Cancelar</button>
+      </div>
+
+    </mat-dialog-actions>
+  </div>
+</div>

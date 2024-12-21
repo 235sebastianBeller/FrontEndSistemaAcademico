@@ -1,0 +1,23 @@
+<div [ngClass]="getColorClass()">
+    <div class="titulo">
+        <h1><b>Matemáticas</b></h1>
+        <div class="area-materias"><b>Área: Ciencias</b></div>
+        <div class="Paralelo"><b>Paralelo: 1°A</b></div>
+    </div>
+    <div class="titulo-contenido">
+        <h2><b>Lista de estudiantes</b></h2>
+    </div>
+    <div class="grid-estudiante">
+        <div class="encabezados">
+            <p><b>Nombres</b></p>
+            <p><b>Apellidos</b></p>
+            <p><b>Edad</b></p>
+        </div>
+        <div *ngFor="let estudiante of estudiantes" class="estudiante-card">
+            <img src="assets/img/silueta.png" alt="Foto-Perfil" loading="lazy">
+            <p><b>{{ estudiante.nombre }}</b></p>
+            <p><b>{{estudiante.apellido}}</b></p>
+            <p class="edad"><b>11</b></p>
+        </div>
+    </div>
+</div>

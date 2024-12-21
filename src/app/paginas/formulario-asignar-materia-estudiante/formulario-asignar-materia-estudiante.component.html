@@ -1,0 +1,39 @@
+<div [ngClass]="getColorClass()">
+  <div class="form-modal">
+    <h2 mat-dialog-title>Asignar Estudiante</h2>
+
+    <mat-dialog-content>
+
+
+
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Estudiante</mat-label>
+        <input
+          type="text"
+          placeholder="Selecciona un Estudiante"
+          aria-label="Estudiante"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (nombreProfesor of filteredEstudiantes | async; track nombreProfesor) {
+            <mat-option [value]="nombreProfesor">{{nombreProfesor}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <div class="dialog-buttons">
+      <button mat-button (click)="onAdd()">Asignar</button>
+      <button mat-button (click)="onCancel()">Cancelar</button>
+       </div>
+    </mat-dialog-actions>
+
+  </div>
+</div>

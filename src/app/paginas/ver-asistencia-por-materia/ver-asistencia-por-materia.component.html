@@ -1,0 +1,22 @@
+<div [ngClass]="getColorClass()">
+  <div class="attendance-container">
+    <b><h2>Materia: {{ materiaNombre }}</h2></b>
+    <p>Profesor: {{ professor }}</p>
+    <p>Paralelo: {{ parallelo }}</p>
+
+    <!-- Iterar sobre los meses -->
+    <div *ngFor="let mes of (asistenciasPorMes | keyvalue)">
+      <div class="month">
+        <h3>{{ mes.key }}</h3> <!-- Nombre del mes -->
+
+        <!-- Grid para los días -->
+        <div class="days-grid">
+          <div *ngFor="let asistencia of mes.value" class="day">
+            <label>{{ asistencia.fecha_asistencia | date: 'dd' }}</label> <!-- Pipe date utilizado aquí -->
+            <img loading="lazy" [src]="getImageForStatus(asistencia.estado)" alt="{{ asistencia.estado }} icon">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

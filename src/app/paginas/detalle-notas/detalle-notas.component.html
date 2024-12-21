@@ -1,0 +1,51 @@
+<div [ngClass]="getColorClass()">
+  <div class="titulo">
+    <div class="area-materias"><h2><b>Área: Ciencias</b></h2></div>
+    <div *ngIf="estudianteSeleccionado" class="nombre-estudiante">
+         <h2><b>Nombre estudiante:</b> {{ estudianteSeleccionado.nombre }} {{ estudianteSeleccionado.apellido }}</h2>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!isLoading">
+  <div class="notas-container">
+    <h2>Notas por Trimestre</h2>
+    <div *ngFor="let trimestre of notasPorTrimestre | keyvalue" class="trimestre-section">
+      <h3>Trimestre {{ trimestre.key }}</h3>
+
+      <div class="notas">
+        <div class="nota-item">
+          <span class="tipo-label">Ser:</span>
+          <span class="nota-value">{{ trimestre.value.ser[0].nota }}</span>
+        </div>
+        <div class="nota-item">
+          <span class="tipo-label">Saber:</span>
+          <span class="nota-value">{{ trimestre.value.saber[0].nota }}</span>
+        </div>
+        <div class="nota-item">
+          <span class="tipo-label">Hacer:</span>
+          <span class="nota-value">{{ trimestre.value.hacer[0].nota }}</span>
+        </div>
+        <div class="nota-item">
+          <span class="tipo-label">Decidir:</span>
+          <span class="nota-value">{{ trimestre.value.decidir[0].nota }}</span>
+        </div>
+        <div class="nota-item total">
+          <span class="tipo-label"><strong>Total:</strong></span>
+          <span class="nota-value"><strong>{{ (convertToNumber(trimestre.value.ser[0].nota) + convertToNumber(trimestre.value.saber[0].nota) + convertToNumber(trimestre.value.hacer[0].nota) + convertToNumber(trimestre.value.decidir[0].nota)) / 4 }}</strong></span>
+        </div>
+
+        <!-- Botón para abrir el modal -->
+        <div class="nota-item">
+          <button mat-button (click)="abrirModal(trimestre)">
+            <img src="https://png.pngtree.com/png-clipart/20230921/original/pngtree-comicstyle-notepad-with-editing-pencil-icon-edit-isolated-note-vector-png-image_12814232.png" alt="Editar" width="60" height="60" loading="lazy">
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div [ngClass]="getColorClass()">
+  <div class="form-modal">
+    <h2 mat-dialog-title>Editar Módulo</h2>
+    <mat-dialog-content>
+      <label>
+        Nombre del módulo:
+        <input [(ngModel)]="newModuleName" />
+      </label>
+      <label>
+        URL de la imagen:
+        <input [(ngModel)]="newModuleImageUrl" />
+      </label>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="onAdd()">Editar</button>
+      <button mat-button (click)="onCancel()">Cancelar</button>
+    </mat-dialog-actions>
+  </div>
+</div>

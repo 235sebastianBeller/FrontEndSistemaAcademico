@@ -1,0 +1,236 @@
+.color-azul
+  .loader-container
+    margin-left: 760px
+    margin-top: 220px
+    height: 100vh
+
+  .mat-mdc-progress-spinner 
+    --mdc-circular-progress-active-indicator-color: rgb(13, 71, 161)
+
+  #encabezado
+    margin-left: 150px
+    margin-bottom: 20px
+    width: 300px 
+    color: rgb(51, 51, 51)
+
+  table
+    width: 1000px
+    border-collapse: collapse
+    margin-top: 20px
+    margin-left: 170px
+
+    th, td
+      padding: 12px
+      text-align: left
+      border: 3px solid #000000
+      text-align: center
+      font-size: 15px
+
+    th
+      background-color: rgb(13, 71, 161)
+      color: rgb(255,255,255)
+
+    tr
+      &:nth-child(odd)
+        background-color: rgb(216, 223, 234)
+        color: rgb(51, 51, 51)
+
+      &:nth-child(even)
+        background-color: rgb(255,255,255)
+        color: rgb(51, 51, 51)
+
+      &:hover
+        background-color: rgb( 45, 45, 45, 0.8)
+        color: rgb(255,255,255)
+        mat-select
+          color: rgb(255,255,255)
+
+  .botonGuardar
+    position: fixed
+    bottom: 5.5rem
+    right: 2rem
+    background-color: rgb(13, 71, 161)
+    color: rgb(255, 255, 255)
+    font-size: 1.2rem
+    display: flex
+    align-items: center
+    border-radius: 50%
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3)
+    padding: 1rem
+
+    &:hover
+      background-color: darken(rgb(21, 101, 192), 10%)
+
+    mat-icon
+      margin-right: 0.3rem
+
+.color-amarillo
+  .loader-container
+    margin-left: 760px
+    margin-top: 220px
+    height: 100vh
+
+  .mat-mdc-progress-spinner 
+    --mdc-circular-progress-active-indicator-color: rgb(255, 215, 0)
+
+  #encabezado
+    margin-left: 150px
+    margin-bottom: 20px
+    width: 300px 
+
+  table
+    width: 1000px
+    border-collapse: collapse
+    margin-top: 20px
+    margin-left: 170px
+
+    th, td
+      padding: 12px
+      text-align: left
+      border: 3px solid #000000
+      text-align: center
+      font-size: 15px
+
+    th
+      background-color: rgb(255, 215, 0)
+      color: rgb(0, 0, 0)
+
+    tr
+      &:nth-child(odd)
+        background-color: rgb(255,255,255)
+        color: rgb(0, 0, 0)
+
+      &:nth-child(even)
+        background-color: rgb(255, 235, 174)
+        color: rgb(0, 0, 0)
+
+      &:hover
+        background-color: rgb( 45, 45, 45, 0.8)
+        color: rgb(255,255,255)
+        mat-select
+          color: rgb(255,255,255)
+  .botonGuardar
+    position: fixed
+    bottom: 5.5rem
+    right: 2rem
+    background-color: rgb(255, 215, 0)
+    color: rgb(0, 0, 0)
+    font-size: 1.2rem
+    display: flex
+    align-items: center
+    border-radius: 50%
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3)
+    padding: 1rem
+
+    &:hover
+      background-color: darken(rgb(255, 193, 7), 10%)
+
+    mat-icon
+      margin-right: 0.3rem
+
+.color-verde
+  .loader-container
+    margin-left: 760px
+    margin-top: 220px
+    height: 100vh
+
+  .mat-mdc-progress-spinner 
+    --mdc-circular-progress-active-indicator-color: rgb(59, 157, 105)
+
+  #encabezado
+    margin-left: 150px
+    margin-bottom: 20px
+    width: 300px 
+    color: rgb(51, 51, 51)
+
+  table
+    width: 1000px
+    border-collapse: collapse
+    margin-top: 20px
+    margin-left: 170px
+
+    th, td
+      padding: 12px
+      text-align: left
+      border: 3px solid #000000
+      text-align: center
+      font-size: 15px
+
+    th
+      background-color: rgb(42, 122, 86)
+      color: rgb(255,255,255)
+
+    tr
+      &:nth-child(odd)
+        background-color: rgb(59, 157, 105, 0.4)
+        color: rgb(51, 51, 51)
+
+      &:nth-child(even)
+        background-color: rgb(255,255,255)
+        color: rgb(51, 51, 51)
+
+      &:hover
+        background-color: rgb( 45, 45, 45, 0.8)
+        color: rgb(255,255,255)
+        mat-select
+          color: rgb(255,255,255)
+
+  .botonGuardar
+    position: fixed
+    bottom: 5.5rem
+    right: 2rem
+    background-color: rgb(42, 122, 86)
+    color: rgb(255, 255, 255)
+    font-size: 1.2rem
+    display: flex
+    align-items: center
+    border-radius: 50%
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3)
+    padding: 1rem
+
+    &:hover
+      background-color: darken(rgb(59, 157, 105), 10%)
+
+    mat-icon
+      margin-right: 0.3rem
+
+@media (max-width: 768px)
+  .color-azul, .color-amarillo, .color-verde
+    .loader-container
+      margin-left: 130px
+      margin-top: 300px
+      height: 60vh
+
+    #encabezado
+      margin-left: 15px
+      margin-bottom: 20px
+      width: 280px
+      font-size: 10px
+
+    table
+      width: 300px
+      border-collapse: collapse
+      margin-top: 20px
+      margin-left: 15px
+
+      th, td
+        padding: 12px
+        text-align: left
+        border: 3px solid #000000
+        text-align: center
+        font-size: 10px
+
+      td
+        mat-select
+          font-size: 10px
+    .botonGuardar
+      position: fixed
+      bottom: 5.2rem
+      right: 0.2rem
+      font-size: 1.2rem
+      display: flex
+      align-items: center
+      border-radius: 50%
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3)
+      padding: 1rem
+  

@@ -1,0 +1,54 @@
+<div [ngClass]="getColorClass()">
+  <mat-form-field class="example-full-width" id="encabezado">
+    <mat-label>Buscar Estudiante</mat-label>
+    <input matInput placeholder="Nombre" (input)="filtrarEstudiantes($event)" />
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width" id="encabezado">
+    <mat-label>Agregar Fecha</mat-label>
+    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="singlePicker" (dateChange)="agregarFecha($event)" />
+    <mat-datepicker-toggle matIconSuffix [for]="singlePicker"></mat-datepicker-toggle>
+    <mat-datepicker #singlePicker></mat-datepicker>
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width" id="encabezado">
+    <mat-label>{{fechaInicio.toLocaleDateString("en-US")}}</mat-label>
+    <input matInput [matDatepicker]="picker" (dateChange)="filtrarFechas($event)">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div *ngIf="isLoading" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  
+  <div *ngIf="!isLoading" class="table">
+    <table mat-table [dataSource]="filteredAsistencias" class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+      </ng-container>
+  
+      <ng-container *ngFor="let fecha of displayedColumns.slice(1)" [matColumnDef]="fecha">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ fecha }}
+          <button (click)="editarFecha(fecha)">🖉</button>
+          <button (click)="eliminarFecha(fecha)">🗑</button>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <mat-select [value]="getEstadoAsistencia(element.asistencias, fecha)"
+            (selectionChange)="actualizarAsistencia(element.asistencias, fecha, $event)">
+            <mat-option value="Presente">Presente</mat-option>
+            <mat-option value="Falta">Falta</mat-option>
+            <mat-option value="Justificado">Justificado</mat-option>
+          </mat-select>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <button mat-fab aria-label="A button to save the changes" class="botonGuardar" (click)="guardarCambios()">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</div>

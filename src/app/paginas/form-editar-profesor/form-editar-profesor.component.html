@@ -1,0 +1,29 @@
+<div [ngClass]="getColorClass()">
+  <div class="form-modal">
+    <h2><b>Editar Profesor</b></h2>
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="profesor.nombre" name="nombre">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input matInput [(ngModel)]="profesor.apellido" name="apellido">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput [(ngModel)]="profesor.email" name="email">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>password</mat-label>
+      <input matInput [(ngModel)]="plainPassword" name="email">
+    </mat-form-field>
+
+    <div class="dialog-buttons">
+
+      <button mat-button color="primary" (click)="guardar()">Guardar</button>
+      <button mat-button (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="login-container" [ngClass]="getColorClass()">
+  <h2><b>Bienvenido al Colegio San Rafael</b></h2>
+  <div class="escudo">
+    <img src="assets/img/logo.png" alt="Escudo" />
+  </div>
+  <form (submit)="login()">
+    <div class="correo">
+      <label for="email"><b>Email</b></label>
+      <img loading="lazy" class="input-icon input-email" src="assets/img/email.png" alt="Email" />
+      <input id="email" [(ngModel)]="email" name="email" type="email" required />
+    </div>
+
+    <div class="contra">
+      <label for="password"><b>Contraseña</b></label>
+      <div class="password-container">
+        <img loading="lazy" class="input-icon" src="assets/img/cerrar.png" alt="Email" />
+        <input id="password" [(ngModel)]="password" name="password" [type]="passwordType" required />
+        <img loading="lazy" class="eye-icon"  [src]="eyeIcon"  alt="Ver Contraseña"  (click)="togglePassword()">
+
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <button type="submit"><b>Iniciar Sesión</b></button>
+  </form>
+</div>

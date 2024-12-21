@@ -1,0 +1,19 @@
+<p>buscar-materia works!</p>
+
+<div>
+  <select id="filtro-categoria" [(ngModel)]="tipoBusqueda">
+    <option value="materia">Buscar por Materia</option>
+    <option value="profesor">Buscar por Profesor</option>
+  </select>
+
+  <input type="text" id="buscar-materia" placeholder="Buscar materia o profesor" (input)="buscar()" />
+
+  <button (click)="buscar()">Buscar</button> <!-- Botón de búsqueda -->
+  
+  <div *ngIf="resultado.length > 0">
+    <div *ngFor="let item of resultado">
+      {{ item }}
+    </div>
+  </div>
+  <div *ngIf="resultado.length === 0 && busquedaRealizada">No se encontraron resultados.</div>
+</div>

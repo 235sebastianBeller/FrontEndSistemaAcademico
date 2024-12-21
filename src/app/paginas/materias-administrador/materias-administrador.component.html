@@ -1,0 +1,38 @@
+<div [ngClass]="getColorClass()">
+  <div class="search-box">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Buscar materia..."
+      class="search-input"
+    />
+  </div>
+
+<button class="agregar-btn" (click)="addNewMateria()"><b>Agregar Materia</b></button>
+<div class="materias-contenedor">
+  <div *ngFor="let materia of filteredMaterias.reverse()" class="materia-card">
+      <img mat-card-image src="https://2.bp.blogspot.com/-DOXEGnjTVHs/V3MUqvgn_dI/AAAAAAAAADE/LEZCAP5mB-UE8S3FOs91mCeVu31KewVAQCLcB/s1600/lectura1-1030x953.jpg" alt="Photo of a Shiba Inu" loading="lazy">
+
+      <div class="enlace-detalles">
+        <button class="materia-nombre"><b>Materia: {{materia.nombre}}</b></button>
+       <div>
+        <b>Paralelo: {{materia?.paralelo?.paralelo}}</b>
+        </div>
+
+
+        <div>
+            <button  class="materia-nombre"
+            [routerLink]="['/home/asignar-materia-docente', materia.id_materia]"
+             ><b>Asignar Profesor</b></button>
+        </div>
+        <div>
+          <button
+          class="materia-nombre"
+          [routerLink]="['/home/asignar-materia-estudiante', materia.id_materia]"
+
+        >
+          <b>Agregar Estudiantes</b>
+        </button>        </div>
+    </div>
+</div>
+</div>

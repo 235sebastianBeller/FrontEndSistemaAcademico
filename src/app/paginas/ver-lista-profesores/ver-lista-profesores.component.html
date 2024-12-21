@@ -1,0 +1,44 @@
+<div [ngClass]="getColorClass()">
+  <div class="profesores-container">
+    <h2>Lista de profesores</h2>
+
+    <div *ngIf="profesores.length === 0">
+      <p>No se han encontrado profesores.</p>
+    </div>
+
+    <div *ngIf="profesores.length > 0">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar" [(ngModel)]="terminoBusqueda" (input)="filtrarProfesores()" />
+        <button class="add-button" mat-button color="primary" (click)="crearProfesor()">+</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nombres</th>
+            <th>Apellido</th>
+            <th>Correo Electrónico</th>
+            <th>Configuraciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let profesor of getProfesoresFiltrados()">
+            <td>{{ profesor.nombre }}</td>
+            <td>{{ profesor.apellido }}</td>
+            <td>{{ profesor.email }}</td>
+            <td>
+              <div class="button-container">
+                <button mat-button (click)="editarProfesor(profesor)">
+                  <img
+                    src="https://png.pngtree.com/png-clipart/20230921/original/pngtree-comicstyle-notepad-with-editing-pencil-icon-edit-isolated-note-vector-png-image_12814232.png"
+                    alt="Editar" width="30" height="30" loading="lazy" />
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

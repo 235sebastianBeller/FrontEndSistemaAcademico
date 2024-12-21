@@ -1,0 +1,22 @@
+<div [ngClass]="getColorClass()">
+  <h2><b>Mis Notas:</b></h2>
+  <select (change)="onYearChange($event)">
+    <option *ngFor="let year of anios" [value]="year">{{ year }}</option>
+  </select>
+  <div class="card-container">
+    @for (materiaAsignada of this.materias; track materiaAsignada.id_dicta) {
+    <div class="materia-card">
+      <img loading="lazy" mat-card-image
+        src="https://2.bp.blogspot.com/-DOXEGnjTVHs/V3MUqvgn_dI/AAAAAAAAADE/LEZCAP5mB-UE8S3FOs91mCeVu31KewVAQCLcB/s1600/lectura1-1030x953.jpg">
+      <b>{{materiaAsignada.materia?.nombre}}</b>
+      <div class="Area"><b>Area: Ciencias</b></div>
+      <div class="Paralelo"><b>Paralelo: {{materiaAsignada.materia?.paralelo?.paralelo}}</b></div>
+      <div class="enlace-detalles">
+        <button [routerLink]="['/home/mostrar-notas-por-materia-profesor', materiaAsignada.id_dicta,this.selectedYear]"><b>Ver
+        Notas</b></button>
+      </div>
+    </div>
+    }
+  </div>
+
+</div>

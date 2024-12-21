@@ -1,0 +1,42 @@
+<div [ngClass]="getColorClass()">
+  <h2 *ngIf="datos && datos.materia"><b>Materia: {{ datos.materia.nombre }}</b></h2>
+  <h2 *ngIf="datos.materia?.paralelo"><b>Paralelo: {{ datos.materia?.paralelo?.paralelo }}</b></h2>
+  <div *ngIf="isLoading" class="loader-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  
+  <div *ngIf="!isLoading">
+  <table>
+    <thead>
+      <tr>
+
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Trimestre 1</th>
+        <th>Trimestre 2</th>
+        <th>Trimestre 3</th>
+        <th>Promedio</th>
+        <th>Enlace</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let estudiante of estudiantesPromedios">
+
+        <td>{{ estudiante.apellido }}</td>
+        <td>{{ estudiante.nombre }}</td>
+        <td>{{ estudiante.trimestre1  }}</td>
+        <td>{{ estudiante.trimestre2  }}</td>
+        <td>{{ estudiante.trimestre3  }}</td>
+        <!-- <td>{{ estudiante.trimestre1 || 'N/A' }}</td>
+        <td>{{ estudiante.trimestre2 || 'N/A' }}</td>
+        <td>{{ estudiante.trimestre3 || 'N/A' }}</td> -->
+        <td>{{ estudiante.promedio?.toFixed(2)  }}</td>
+        <td><button [routerLink]="['/home/detalle-notas', this.idMateria,estudiante.id_estudiante,this.anio]">Mas detalle</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+  <div>
+</div>

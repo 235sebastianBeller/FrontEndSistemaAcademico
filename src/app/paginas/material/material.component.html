@@ -1,0 +1,35 @@
+<div [ngClass]="getColorClass()">
+  <div class="pdf-container">
+    <a href="{{getSrc()}}"><b>Ver</b></a>
+    <pdf-viewer [src]="getSrc()" [rotation]="0" [original-size]="false" [show-all]="true" [fit-to-page]="false"
+      [zoom]="1" [zoom-scale]="'page-width'" [stick-to-page]="false" [render-text]="true"
+      [external-link-target]="'blank'" [autoresize]="true" [show-borders]="false" style="width: 75%; height: 85vh;"
+      (after-load-complete)="readPdf($event)"></pdf-viewer>
+  </div>
+  <div class="accordion">
+    <button (click)="toggle()">
+      <p>
+        <b>Quieres profundizar mas?</b>
+      </p>
+    </button>
+    <div class="chat" *ngIf="isOpen">
+      <div class="accordion-content">
+        <div [innerHTML]="response"></div>
+      </div>
+      <div class="responses">
+        <div *ngFor="let message of messages">
+          <div class="mensaje-usuario">
+            <div [innerHTML]="message.user"></div>
+          </div>
+          <div class="mensaje-ia">
+            <div [innerHTML]="message.responseIA"></div>
+          </div>
+        </div>
+      </div>
+      <div class="interaction">
+        <textarea [(ngModel)]="userPrompt" placeholder="Escribe tu pregunta aquí..."></textarea>
+        <button (click)="sendUserPrompt()" class="enviar-promt">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>

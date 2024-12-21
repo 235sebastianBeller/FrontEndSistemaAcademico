@@ -1,0 +1,60 @@
+.paginas-color
+  margin-top: 15px
+  margin-left: 15px
+  display: flex
+  align-items: center
+  gap: 15px
+  font-family: 'Roboto', sans-serif
+  color: #333
+
+.paginas-color b
+  font-size: 1rem
+  font-weight: bold
+
+
+.color-option
+  width: 30px
+  height: 30px
+  border-radius: 50%
+  cursor: pointer
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+  border: 2px solid transparent
+
+.color-option:hover
+  transform: scale(1.1)
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)
+
+.color-option.selected
+  border-color: #000000
+
+@media (max-width: 768px)
+  .paginas-color
+    margin-top: 25px
+    margin-left: 25px
+    display: flex
+    align-items: center
+    gap: 15px
+    font-family: 'Roboto', sans-serif
+    color: #333
+
+  .paginas-color b
+    font-size: 0.9rem
+    font-weight: bold
+
+
+  .color-option
+    width: 25px
+    height: 25px
+    border-radius: 50%
+    cursor: pointer
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+    border: 2px solid transparent
+
+  .color-option:hover
+    transform: scale(1.1)
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3)
+
+  .color-option.selected
+    border-color: #000000
+img
+ object-fit: cover
